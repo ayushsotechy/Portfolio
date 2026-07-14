@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ayush Verma — software developer building dependable, human-centered digital products." />
+    <meta name="theme-color" content="#10100f" />
+    <title>Ayush Verma — Software Developer</title>
+    <script>if (location.search.includes('qa=1')) document.documentElement.classList.add('qa');</script>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="cursor cursor-dot" aria-hidden="true"></div>
+    <div class="cursor cursor-ring" aria-hidden="true"></div>
+
+    <div class="page-loader" aria-hidden="true">
+      <div class="loader-mark">AV<span>.</span></div>
+      <div class="loader-line"><span></span></div>
+    </div>
+
+    <header class="site-header">
+      <a class="logo magnetic" href="#top" aria-label="Ayush Verma, back to top">AV<span>.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="availability magnetic" href="mailto:ayushverma3006@gmail.com">
+        <span class="status-dot"></span> Available to build
+      </a>
+    </header>
+
+    <main id="top">
+      <section class="hero section-pad" aria-labelledby="hero-title">
+        <div class="hero-orbit orbit-one" data-parallax="-0.08"></div>
+        <div class="hero-orbit orbit-two" data-parallax="0.13"></div>
+
+        <div class="hero-copy">
+          <p class="eyebrow reveal"><span>01</span> Software developer · New Delhi</p>
+          <h1 id="hero-title" class="hero-title" aria-label="Ayush Verma">
+            <span class="title-line"><span>AYUSH</span></span>
+            <span class="title-line title-line-right"><span>VERMA</span></span>
+          </h1>
+          <div class="hero-bottom reveal">
+            <p class="hero-intro">I turn complex systems into <em>clear, useful</em> digital experiences.</p>
+            <div class="role-flip" aria-label="My specialties">
+              <span class="role-label">Currently into</span>
+              <span class="role-window"><span id="role-text">Full-stack systems</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" data-tilt>
+          <div class="visual-label"><span>Interactive object</span><span>Drag your cursor</span></div>
+          <div class="orb-wrap" aria-hidden="true">
+            <div class="orb-glow"></div>
+            <svg class="orb" viewBox="0 0 500 500" role="img">
+              <defs>
+                <linearGradient id="orbGradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#b8ff35" />
+                  <stop offset=".48" stop-color="#f3f0e8" />
+                  <stop offset="1" stop-color="#7f6cff" />
+                </linearGradient>
+                <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <g class="orb-lines" fill="none" stroke="url(#orbGradient)" stroke-width="1.4" filter="url(#glow)">
+                <ellipse cx="250" cy="250" rx="195" ry="78" />
+                <ellipse cx="250" cy="250" rx="195" ry="78" transform="rotate(60 250 250)" />
+                <ellipse cx="250" cy="250" rx="195" ry="78" transform="rotate(120 250 250)" />
+                <circle cx="250" cy="250" r="195" />
+                <circle cx="250" cy="250" r="132" stroke-dasharray="4 12" />
+              </g>
+              <g class="orb-nodes" fill="#b8ff35">
+                <circle cx="55" cy="250" r="5"/><circle cx="347" cy="81" r="5"/><circle cx="347" cy="419" r="5"/>
+              </g>
+            </svg>
+            <span class="orb-code">&lt;/&gt;</span>
+          </div>
+        </div>
+
+        <a class="hero-cta magnetic" href="#work"><span>Explore<br />my work</span><span class="arrow">↘</span></a>
+        <div class="scroll-note"><span></span> Scroll to discover</div>
+      </section>
+
+      <section class="marquee" aria-label="Skills">
+        <div class="marquee-track">
+          <span>React.js</span><i>✦</i><span>TypeScript</span><i>✦</i><span>Node.js</span><i>✦</i><span>MongoDB</span><i>✦</i><span>System Design</span><i>✦</i>
+          <span aria-hidden="true">React.js</span><i aria-hidden="true">✦</i><span aria-hidden="true">TypeScript</span><i aria-hidden="true">✦</i><span aria-hidden="true">Node.js</span><i aria-hidden="true">✦</i><span aria-hidden="true">MongoDB</span><i aria-hidden="true">✦</i><span aria-hidden="true">System Design</span><i aria-hidden="true">✦</i>
+        </div>
+      </section>
+
+      <section id="work" class="work section-pad">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span>02</span> Selected work</p>
+          <h2>Projects with<br /><em>real purpose.</em></h2>
+          <p class="heading-note">From delightful food discovery to smarter inventory decisions.</p>
+        </div>
+
+        <div class="filters reveal" role="group" aria-label="Filter projects">
+          <button class="filter active" data-filter="all">All <sup>02</sup></button>
+          <button class="filter" data-filter="fullstack">Full-stack <sup>02</sup></button>
+          <button class="filter" data-filter="ai">AI / Data <sup>01</sup></button>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card project-large reveal" data-category="fullstack" data-tilt>
+            <a class="project-visual flavour" href="https://flavour-feed-latest.vercel.app/" target="_blank" rel="noreferrer" aria-label="Open FlavorFeed live demo">
+              <div class="project-number">01 / 02</div>
+              <div class="phone-shell">
+                <div class="phone-speaker"></div>
+                <div class="food-scene">
+                  <span class="food-ring ring-one"></span><span class="food-ring ring-two"></span>
+                  <div class="food-copy">taste<br />in motion<span>.</span></div>
+                </div>
+                <div class="phone-actions"><span>♡</span><span>◉</span><span>↗</span></div>
+              </div>
+              <span class="card-open magnetic">↗</span>
+            </a>
+            <div class="project-info">
+              <div>
+                <p>Video-first food commerce</p>
+                <h3>FlavorFeed</h3>
+              </div>
+              <div class="project-meta">
+                <span>React</span><span>Node</span><span>MongoDB</span><span>ImageKit</span>
+              </div>
+              <p class="project-description">An immersive social feed that turns food discovery into ordering, with secure multi-role workflows for customers and restaurant partners.</p>
+              <div class="project-links">
+                <a href="https://flavour-feed-latest.vercel.app/" target="_blank" rel="noreferrer">Live demo ↗</a>
+                <a href="https://github.com/ayushsotechy/ZomatoClone.git" target="_blank" rel="noreferrer">Source ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-offset reveal" data-category="fullstack ai" data-tilt>
+            <a class="project-visual genius" href="https://github.com/addiboy123/storeGenius.git" target="_blank" rel="noreferrer" aria-label="Open Store Genius on GitHub">
+              <div class="project-number">02 / 02</div>
+              <div class="dashboard-shell">
+                <div class="dash-top"><span></span><span></span><span></span><b>STORE / GENIUS</b></div>
+                <div class="dash-grid">
+                  <div class="chart"><span style="--h:38%"></span><span style="--h:58%"></span><span style="--h:45%"></span><span style="--h:74%"></span><span style="--h:91%"></span><span style="--h:67%"></span></div>
+                  <div class="demand"><small>Demand signal</small><strong>+28.4%</strong><i>Trending upward</i></div>
+                  <div class="basket"><small>Smart basket</small><div><span>12</span> items optimized</div></div>
+                </div>
+              </div>
+              <span class="card-open magnetic">↗</span>
+            </a>
+            <div class="project-info">
+              <div>
+                <p>B2B demand intelligence</p>
+                <h3>Store Genius</h3>
+              </div>
+              <div class="project-meta">
+                <span>TypeScript</span><span>Google Trends</span><span>Docker</span><span>Hugging Face</span>
+              </div>
+              <p class="project-description">A smarter inventory platform with real-time demand signals, natural-language basket generation, and sustainability impact tracking.</p>
+              <div class="project-links"><a href="https://github.com/addiboy123/storeGenius.git" target="_blank" rel="noreferrer">View source ↗</a></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="about" class="about section-pad">
+        <div class="about-grid">
+          <div class="about-sticky">
+            <p class="eyebrow reveal"><span>03</span> About me</p>
+            <h2 class="reveal">Curious by nature.<br /><em>Driven by craft.</em></h2>
+            <p class="about-lead reveal">I’m a Software Engineering student at Delhi Technological University, exploring the edge where thoughtful product design meets dependable engineering.</p>
+            <div class="about-stat reveal"><strong>9.12</strong><span>CGPA at DTU<br />and counting</span></div>
+          </div>
+
+          <div class="journey">
+            <article class="timeline-item reveal">
+              <div class="timeline-dot"></div>
+              <p class="timeline-date">May — July 2026</p>
+              <div class="timeline-content">
+                <span>Experience</span>
+                <h3>STEP Intern</h3>
+                <h4>Maruti Suzuki India Limited</h4>
+                <p>Built a dealer performance portal spanning Admin, Dealer, and MSIL workflows. Automated ingestion for 350+ scorecards across 8 business areas and 31 parameters, with secure role-based access and scalable MongoDB APIs.</p>
+                <div class="tags"><span>Node.js</span><span>Express</span><span>MongoDB</span><span>Azure</span><span>JWT</span></div>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal">
+              <div class="timeline-dot"></div>
+              <p class="timeline-date">2023 — 2027</p>
+              <div class="timeline-content">
+                <span>Education</span>
+                <h3>B.Tech, Software Engineering</h3>
+                <h4>Delhi Technological University</h4>
+                <p>Building strong foundations in data structures, operating systems, computer networks, databases, and object-oriented design—then putting them to work in production-minded projects.</p>
+                <div class="tags"><span>DSA</span><span>OOP</span><span>OS</span><span>CN</span><span>DBMS</span></div>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal">
+              <div class="timeline-dot"></div>
+              <p class="timeline-date">Beyond code</p>
+              <div class="timeline-content">
+                <span>Recognition</span>
+                <h3>Built on consistency</h3>
+                <p>Maintained a 9+ CGPA across every semester, earned CBSE Merit Certificates for placing in the top 0.01% nationally in two subjects, and ranked third overall in school.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="toolkit reveal">
+          <p class="eyebrow"><span>04</span> My toolkit</p>
+          <div class="tool-rows">
+            <div><span>Languages</span><p>C++ · JavaScript · TypeScript</p></div>
+            <div><span>Build</span><p>React.js · Node.js · Express.js · Tailwind CSS</p></div>
+            <div><span>Data</span><p>MongoDB · PostgreSQL · Prisma · Mongoose</p></div>
+            <div><span>Ship</span><p>Git · Docker · CI/CD · Azure · Postman</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact section-pad">
+        <div class="contact-glow" data-parallax="-0.1"></div>
+        <div class="contact-top reveal">
+          <p class="eyebrow"><span>05</span> Let’s collaborate</p>
+          <div class="contact-status"><span class="status-dot"></span> Open to opportunities</div>
+        </div>
+        <div class="contact-main">
+          <div class="contact-copy reveal">
+            <h2>Have an idea?<br /><em>Let’s make it real.</em></h2>
+            <p>Whether it’s a product, an internship, or just a good engineering conversation—my inbox is open.</p>
+            <a class="mail-link" href="mailto:ayushverma3006@gmail.com">ayushverma3006@gmail.com <span>↗</span></a>
+          </div>
+          <form class="contact-form reveal" id="contact-form">
+            <label><span>Your name</span><input name="name" type="text" placeholder="What should I call you?" required /></label>
+            <label><span>Your email</span><input name="email" type="email" placeholder="you@company.com" required /></label>
+            <label><span>Your message</span><textarea name="message" rows="1" placeholder="Tell me about the idea..." required></textarea></label>
+            <button class="send-button magnetic" type="submit"><span>Send<br />message</span><b>↗</b></button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a class="logo" href="#top">AV<span>.</span></a>
+      <p>Designed & built with intention.<br />New Delhi, India · <span id="local-time">IST</span></p>
+      <div class="socials">
+        <a class="magnetic" href="https://www.linkedin.com/in/ayush-verma-7334a8194/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        <a class="magnetic" href="https://github.com/ayushsotechy" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a class="magnetic" href="https://leetcode.com/u/ayushsotechy/" target="_blank" rel="noreferrer">LeetCode ↗</a>
+      </div>
+      <a class="back-top magnetic" href="#top">↑</a>
+    </footer>
+  </body>
+</html>

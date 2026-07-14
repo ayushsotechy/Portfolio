@@ -183,6 +183,7 @@ em { font-family: var(--serif); font-weight: 400; }
 .contact-copy > p { max-width: 470px; margin: 40px 0 60px; color: #a4a19a; font-size: 1rem; line-height: 1.65; }
 .mail-link { display: flex; justify-content: space-between; max-width: 470px; padding: 0 0 12px; border-bottom: 1px solid #5e5c57; font-size: clamp(.9rem,1.5vw,1.2rem); }
 .contact-form { display: grid; gap: 38px; }
+.form-honey { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important; }
 .contact-form label { display: grid; gap: 13px; }
 .contact-form label > span { color: #88857f; font-size: .61rem; text-transform: uppercase; letter-spacing: .14em; }
 .contact-form input, .contact-form textarea { width: 100%; padding: 4px 0 14px; color: var(--paper); background: transparent; border: 0; border-bottom: 1px solid #4a4844; outline: 0; resize: none; font-size: 1.05rem; cursor: none; transition: border-color .2s; }
@@ -191,6 +192,11 @@ em { font-family: var(--serif); font-weight: 400; }
 .send-button { justify-self: end; width: 128px; height: 128px; padding: 26px; display: flex; flex-direction: column; justify-content: space-between; border-radius: 50%; color: var(--ink); background: var(--acid); text-align: left; text-transform: uppercase; font-size: .68rem; letter-spacing: .08em; cursor: none; }
 .send-button b { align-self: flex-end; font-size: 1.4rem; font-weight: 400; }
 .send-button.sent { background: var(--paper); }
+.send-button:disabled { cursor: wait; opacity: .72; }
+.form-status { min-height: 1.25em; margin: -10px 0 0; color: #a4a19a; font-size: .72rem; line-height: 1.45; text-align: right; }
+.form-status.success { color: var(--acid); }
+.form-status.error { color: #ff8b68; }
+.form-status a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 
 footer { min-height: 190px; padding: 55px 3vw; display: grid; grid-template-columns: 1fr 1fr 1fr auto; align-items: end; gap: 25px; border-top: 1px solid var(--line); }
 footer p { margin: 0; color: #77756f; font-size: .65rem; line-height: 1.5; text-transform: uppercase; letter-spacing: .09em; }
@@ -206,14 +212,15 @@ footer p { margin: 0; color: #77756f; font-size: .65rem; line-height: 1.5; text-
 .automation .title-line > span, .qa .title-line > span { animation: none; }
 .automation .reveal, .qa .reveal { opacity: 1; transform: none; }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   body, .filter, .contact-form input, .contact-form textarea, .send-button { cursor: auto; }
   .cursor { display: none; }
   .site-header { grid-template-columns: 1fr 1fr; }
   nav { display: none; }
   .hero { grid-template-columns: 1fr; padding-top: 130px; padding-bottom: 150px; }
+  .hero-copy { width: 100%; }
   .hero-visual { position: absolute; right: -9vw; top: 28%; width: 60vw; opacity: .55; }
-  .hero-bottom { margin-left: 0; }
+  .hero-bottom { margin-left: 0; flex-wrap: wrap; gap: 28px 48px; }
   .hero-cta { right: 6vw; bottom: 5vh; }
   .section-heading { grid-template-columns: 1fr; gap: 20px; }
   .heading-note { justify-self: start; }
@@ -227,6 +234,13 @@ footer p { margin: 0; color: #77756f; font-size: .65rem; line-height: 1.5; text-
   .toolkit { grid-template-columns: 1fr; }
   .contact-main { gap: 100px; }
   footer { grid-template-columns: 1fr 1fr; }
+}
+
+@media (hover: none), (pointer: coarse) {
+  body, .filter, .contact-form input, .contact-form textarea, .send-button { cursor: auto; }
+  .cursor { display: none; }
+  .project-card:hover .project-visual > :not(.project-number):not(.card-open) { transform: none; }
+  .hero-cta:hover { background: var(--acid); color: var(--ink); }
 }
 
 @media (max-width: 600px) {
@@ -262,6 +276,20 @@ footer p { margin: 0; color: #77756f; font-size: .65rem; line-height: 1.5; text-
   .contact-status { max-width: 110px; }
   footer { grid-template-columns: 1fr; align-items: start; padding: 45px 20px; }
   .back-top { position: absolute; right: 20px; }
+}
+
+@supports (padding: max(0px)) {
+  .site-header {
+    padding-left: max(3vw, env(safe-area-inset-left));
+    padding-right: max(3vw, env(safe-area-inset-right));
+  }
+
+  @media (max-width: 600px) {
+    .site-header {
+      padding-left: max(20px, env(safe-area-inset-left));
+      padding-right: max(20px, env(safe-area-inset-right));
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

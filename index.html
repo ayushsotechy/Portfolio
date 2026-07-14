@@ -231,11 +231,16 @@
             <p>Whether it’s a product, an internship, or just a good engineering conversation—my inbox is open.</p>
             <a class="mail-link" href="mailto:ayushverma3006@gmail.com">ayushverma3006@gmail.com <span>↗</span></a>
           </div>
-          <form class="contact-form reveal" id="contact-form">
+          <form class="contact-form reveal" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="a5a90dc7-5edf-42b9-8b6c-ae246866c9e0" />
+            <input type="hidden" name="subject" value="New portfolio enquiry" />
+            <input type="hidden" name="from_name" value="Ayush Verma Portfolio" />
+            <input class="form-honey" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <label><span>Your name</span><input name="name" type="text" placeholder="What should I call you?" required /></label>
             <label><span>Your email</span><input name="email" type="email" placeholder="you@company.com" required /></label>
             <label><span>Your message</span><textarea name="message" rows="1" placeholder="Tell me about the idea..." required></textarea></label>
             <button class="send-button magnetic" type="submit"><span>Send<br />message</span><b>↗</b></button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           </form>
         </div>
       </section>

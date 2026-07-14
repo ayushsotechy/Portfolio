@@ -1,4 +1,5 @@
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const supportsFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
 if (navigator.webdriver) document.body.classList.add('automation');
 
@@ -38,7 +39,7 @@ document.querySelectorAll('a, button, input, textarea').forEach((element) => {
 
 document.querySelectorAll('.magnetic').forEach((element) => {
   element.addEventListener('pointermove', (event) => {
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion || !supportsFinePointer) return;
     const box = element.getBoundingClientRect();
     const x = (event.clientX - box.left - box.width / 2) * 0.22;
     const y = (event.clientY - box.top - box.height / 2) * 0.22;
@@ -82,7 +83,7 @@ window.setInterval(() => {
 
 document.querySelectorAll('[data-tilt]').forEach((element) => {
   element.addEventListener('pointermove', (event) => {
-    if (prefersReducedMotion || window.innerWidth < 900) return;
+    if (prefersReducedMotion || !supportsFinePointer || window.innerWidth <= 1024) return;
     const box = element.getBoundingClientRect();
     const x = (event.clientX - box.left) / box.width - 0.5;
     const y = (event.clientY - box.top) / box.height - 0.5;
@@ -106,15 +107,60 @@ filters.forEach((filter) => {
 });
 
 const form = document.querySelector('#contact-form');
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', async (event) => {
   event.preventDefault();
-  const data = new FormData(form);
-  const subject = encodeURIComponent(`Portfolio enquiry from ${data.get('name')}`);
-  const body = encodeURIComponent(`${data.get('message')}\n\nFrom: ${data.get('name')} (${data.get('email')})`);
   const button = form.querySelector('button');
-  button.classList.add('sent');
-  button.querySelector('span').innerHTML = 'Opening<br />mail app';
-  window.location.href = `mailto:ayushverma3006@gmail.com?subject=${subject}&body=${body}`;
+  const buttonLabel = button.querySelector('span');
+  const status = document.querySelector('#form-status');
+  const data = Object.fromEntries(new FormData(form).entries());
+
+  button.disabled = true;
+  button.classList.remove('sent');
+  buttonLabel.innerHTML = 'Sending<br />message';
+  status.className = 'form-status';
+  status.textContent = 'Securely delivering your message…';
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        access_key: data.access_key,
+        name: data.name,
+        email: data.email,
+        message: data.message,
+        replyto: data.email,
+        subject: `Portfolio enquiry from ${data.name}`,
+        from_name: 'Ayush Verma Portfolio',
+        botcheck: data.botcheck || '',
+      }),
+    });
+
+    const result = await response.json();
+    if (!response.ok || result.success !== true) {
+      throw new Error(result.message || 'Submission failed');
+    }
+
+    form.reset();
+    button.classList.add('sent');
+    buttonLabel.innerHTML = 'Message<br />sent';
+    status.className = 'form-status success';
+    status.textContent = 'Thanks — I’ll get back to you soon.';
+  } catch (error) {
+    const subject = encodeURIComponent(`Portfolio enquiry from ${data.name}`);
+    const body = encodeURIComponent(`${data.message}\n\nFrom: ${data.name} (${data.email})`);
+    const fallbackHref = `mailto:ayushverma3006@gmail.com?subject=${subject}&body=${body}`;
+
+    console.error('Contact form delivery failed:', error);
+    buttonLabel.innerHTML = 'Try<br />again';
+    status.className = 'form-status error';
+    status.innerHTML = `Delivery service unavailable. <a href="${fallbackHref}">Open the prepared email ↗</a>`;
+  } finally {
+    button.disabled = false;
+  }
 });
 
 function updateTime() {
